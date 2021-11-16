@@ -1,0 +1,37 @@
+{
+    "manifest_version": 2,
+    "name": "Priceedge - Chrome Extension - Cervera competitor pricing",
+    "version": "3.1",
+    "description": "Cervera - Chrome extension developed by PriceEdge team for monitoring competitor prices",
+    "web_accessible_resources": [
+        "images/*.png", "images/*.gif", "images/*.PNG", "images/*.ico"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.cervera.se/*"
+            ],
+            "js": [ "js/jquery.js", "js/jquery-ui.min.js", "js/ag-grid.min.js", "js/settings.js", "js/content_helpers.js", "content.js"],
+            "css": ["css/jquery-ui.min.css", "css/content.css"]
+        }
+    ],
+    "browser_action": {
+        "default_icon": "favicon.png"
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "storage",
+        "declarativeContent",
+        "https://cervera.priceedge.eu/",
+        "https://www.cervera.se/*",
+        "<all_urls>", 
+        "contextMenus"
+    ],
+    "background": {
+        "scripts": [ "js/jquery.js", "js/settings.js", "js/background_helpers.js", "background.js"],
+        "persistent": false
+    }
+}
+
+
